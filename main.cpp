@@ -5,58 +5,67 @@
  * the syllabus regarding plagiarized code.
  */
 
-// The goal of this application is to calculate gross and net box office profit for a one day time period
+// This application calculates gross and net box office profit for a theater.
 #include <iostream>
 #include <string>
 #include <iomanip>
-using namespace std;
+using std::cout;
+using std::endl;
+using std::cin;
+using std::showpoint;
+using std::fixed;
+using std::setprecision;
+using std::string;
+using std::right;
+using std::setw;
 
-int main()
-{
-
-    //Stores the movie title
+int main()  {
+    // Stores the movie title
     string movieName;
     cout << "What is the movie name:" <<endl;
     getline(cin, movieName);
 
-    //Stores values of adult tickets sold
+    // Stores values of adult tickets
     int adultTicket = 12;
     int totalAdultSales;
-    cout << "How many adult tickets sold:" << endl;
+    cout << "How many Adult tickets sold:" << endl;
     cin >> totalAdultSales;
 
-    //Stores value of child tickets sold
+    // Stores value of child tickets
     int childTicket = 9;
     int totalChildSales;
-    cout << "How many child tickets sold:" << endl;
+    cout << "How many Child tickets sold:" << endl;
     cin >> totalChildSales;
 
-    //Prints movie title with quotes
+    // Prints movie title with quotes
     string addPar = "\"" + movieName + "\"";
     cout << "Movie Name:" << setw(30) << right << addPar <<endl;
 
-    //Prints total adult ticket sales
-    cout << "Total Adult tickets sold:" << setw(12) << setprecision(2) << fixed << totalAdultSales << endl;
+    // Prints adult ticket sales
+    cout << "Adult Tickets Sold:" << setw(12) << setprecision(2)
+         << fixed << totalAdultSales << endl;
 
-    // Displays total amount of child tickets sold
-    cout << "Total Child tickets sold:" << setw(12) << totalChildSales << endl;
+    // Prints child ticket sales
+    cout << "Child Tickets Sold:" << setw(12) << totalChildSales << endl;
 
-    //Displays and calculates gross profit
-    double grossCal = (adultTicket * totalAdultSales) + (childTicket * totalChildSales);
-    cout << "Gross Box Office Profit:" << setw(10) << showpoint << "$ " << grossCal << endl;
+    // Prints and calculates gross profit
+    double grossCal = (adultTicket * totalAdultSales)
+                      + (childTicket * totalChildSales);
+    cout << "Gross Box Office Profit:" << setw(8) << showpoint
+         << "$ " << grossCal << endl;
 
-    //Displays and calculates net profit
+    // Prints and calculates net profit
     double netCal = grossCal *0.22;
-    cout << "Net Box Office Profit:" << setw(12) << showpoint << "$ " << netCal<< endl;
+    cout << "Net Box Office Profit:" << setw(10)
+         << showpoint << "$ " << netCal<< endl;
 
-    //Displays amount paid to Dist
-    cout << "Amount Paid to Distributor:" << setw(7) << showpoint << "$ " << grossCal - netCal << endl;
+    // Prints amount paid to Dist
+    cout << "Amount Paid to Distributor:" << setw(5) << showpoint << "$ "
+         << grossCal - netCal << endl << endl;
 
-    //Pauses screen for viewing
+    // Pauses screen for viewing
     char pause = cin.get();
-    cout << "Press enter to continue:";
+    cout << "Press enter to continue: ";
     cin.get(pause);
     return 0;
-
-
 }
